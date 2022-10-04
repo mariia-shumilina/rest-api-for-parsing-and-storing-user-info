@@ -5,17 +5,16 @@ import com.example.parser.entity.PersonEntity;
 import com.example.parser.mapper.PersonMapper;
 import com.example.parser.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/persons")
-
+@RequiredArgsConstructor
 public class PersonController {
 
-    private PersonRepository redisPersonRepos;
-    private PersonMapper mapper;
+    private final PersonRepository redisPersonRepos;
+    private final PersonMapper mapper;
 
     @PostMapping
     public ResponseEntity<?> save(@RequestBody PersonDTO personDTO) {
@@ -24,8 +23,8 @@ public class PersonController {
         return ResponseEntity.ok(personEntity);
     }
 
-    @GetMapping
-    public ResponseEntity<?> get(@RequestBody int id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<?> get(@PathVariable Long id) {
         return ResponseEntity.ok(redisPersonRepos.findById(id));
     }
 }

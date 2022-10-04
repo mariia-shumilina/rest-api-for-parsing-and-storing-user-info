@@ -13,7 +13,7 @@ public class PersonMapper {
                 person.getGender(),
                 person.getHomeTown(),
                 person.getBirthDate()
-                );
+        );
     }
 
     public PersonEntity toEntity(PersonDTO personDTO) {
