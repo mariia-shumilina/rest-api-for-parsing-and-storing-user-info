@@ -1,17 +1,15 @@
 package com.example.parser.dto;
 
+import com.example.parser.entity.PersonEntity.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-
-import java.text.SimpleDateFormat;
 
 @AllArgsConstructor
 @Data
 public class PersonDTO {
-        private int id;
+        private Long id;
         private String fullName;
-        private com.example.parser.entity.PersonEntity.Gender gender;
+        private Gender gender;
         private String homeTown;
-        private SimpleDateFormat birthDate;
+        private String birthDate;
 }
